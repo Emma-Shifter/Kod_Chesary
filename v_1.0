@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    char alfabet [26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    int key;
+    bool check = true;
+    int a = 0;
+    string s1; //вводимая строка
+    cout << "Введите ключ"<< endl;
+    cin >> key;
+    cout << "Введите строку " << endl;
+    cin >> s1;
+    for(int i=0; i < sizeof(s1); i++)
+        {
+            do
+            {
+                if (a == 0)
+                {
+                    check = false;
+                }
+                for(int j=0; j < 26; j++)
+                {
+                    if (s1[i] == alfabet[j])
+                    {
+                        a = j;
+                    }
+                }
+                s1[i] = alfabet[a+key];
+                a = 0;
+            }
+            while (check == true);
+        }
+    if (check == true)
+    {
+        cout << "Полученная строка" << endl;
+        cout << s1;
+    }
+    else
+    {
+        cout << "В строке недопустимый символ!" <<endl;
+    }
+}
